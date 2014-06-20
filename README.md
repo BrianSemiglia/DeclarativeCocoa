@@ -1,8 +1,9 @@
 DeclarativeCocoa
 ================
 
-An experiment in declarative programming with Cocoa. This is a bit of a pipe dream but I'm trying to imagine a declarative approach as I would like to have and then worry about the details afterwards so as to not limit the idea. Essentially, I'd like to be able to declare properties on an object and the relationships between those properties like this:
+An experiment in declarative programming with Cocoa. This is a bit of a pipe dream but I'm trying to imagine a declarative approach as I would like to have available and then worry about the details afterwards so as not to limit the idea. Essentially, I'd like to be able to declare properties on an object and the relationships between those properties like this:
 
+    // Use of class method prevents accessing/mutating other instance variables outside of the provided scope.
     + (BSRelationship *)relationshipBetweenSendBar:(UIView *)sendBar andToolBar:(UIView *)toolbar {
         BSRelationship *relationship = [[BSRelationship alloc] initWithFirstObject:sendBar secondObject:toolbar];
         relationship.threadSafe = NO;
