@@ -13,7 +13,7 @@ An experiment in declarative programming with Cocoa. This is a bit of a pipe dre
         return relationship;
     }
     
-    // The use of class method prevents accessing/mutating other instance variables outside of the provided scope.
+    // The use of class method prevents accessing/mutating instance variables that are outside of the provided scope.
 
 Current goals:
 - Reduce mutability.
