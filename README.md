@@ -20,3 +20,5 @@ Current goals:
 
 Unsolved problems:
 - One to many relationships.
+
+There are more details documented in the sample project.
