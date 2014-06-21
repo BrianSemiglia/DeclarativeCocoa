@@ -22,5 +22,6 @@ Current goals:
 
 Unsolved problems:
 - One to many relationships.
+- Implementing delegate responsibilities.
 
 There are more details documented in the sample project. Any feedback is welcome.
