@@ -15,7 +15,7 @@ This is a bit of a pipe dream but I'm trying to imagine a declarative approach a
     
     // The use of class methods prevents accessing/mutating instance variables that are outside of the provided scope.
 
-An observing object would inspect the object's properties, create selectors using those properties, call out for the relationships using the selectors and then bind the properties using the gathered relationships and ReactiveCocoa bindings.
+An observing object would inspect the object's properties, create selectors using those properties, call out for the relationships using the selectors and then bind the properties using the gathered relationships and ReactiveCocoa.
 
 Current goals:
 - Reduce mutability.
