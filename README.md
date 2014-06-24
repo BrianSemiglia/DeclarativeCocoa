@@ -1,7 +1,14 @@
 DeclarativeCocoa
 ================
 
-This is a bit of a pipe dream but I'm trying to imagine a declarative approach as I would like to have available and then worry about the details afterwards so as not to limit the idea. Essentially, I'd like to be able to declare properties on an object and the relationships between those properties like this:
+This is a bit of a pipe dream but I'm trying to imagine a declarative approach as I would like to have available and then worry about the details afterwards so as not to limit the idea. Here's the gist.
+
+1. Class declares properties.
+2. Class declares relationships between properties.
+3. Relationships are gathered and stored.
+4. Relationships are evalutated when involved properties change.
+
+A relationship would look something like this:
 
     + (BSRelationship *)relationshipBetweenSendBar:(UIView *)sendBar andToolBar:(UIView *)toolbar {
         BSRelationship *relationship = [[BSRelationship alloc] initWithFirstObject:sendBar secondObject:toolbar];
@@ -15,8 +22,6 @@ This is a bit of a pipe dream but I'm trying to imagine a declarative approach a
     
     // The use of class methods prevents accessing/mutating instance variables that are outside of the provided scope.
 
-An observing object would inspect the object's properties, create selectors using those properties, call out for the relationships using the selectors and then bind the properties using the gathered relationships and ReactiveCocoa.
-
 Current goals:
 - Reduce mutability.
 - Reduce procedural orientation.
@@ -24,6 +29,7 @@ Current goals:
 
 Unsolved problems:
 - One to many relationships.
+- Callbacks must be replaced with properties representing state (viewDidAppear vs. self.view.isVisible).
 - Implementing delegate responsibilities.
 
 There are more details documented in the sample project. Any feedback is welcome.
