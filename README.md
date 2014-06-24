@@ -1,7 +1,7 @@
 DeclarativeCocoa
 ================
 
-This is a bit of a pipe dream but I'm trying to imagine a declarative approach as I would like to have available and then worry about the details afterwards so as not to limit the idea. Here's the gist.
+This is a bit of a pipe dream but I'm trying to imagine a purely declarative form of Reactive Cocoa. And in the spirit of declarative programming I'm starting with the 'what' and working my way towards the 'how' so there are many unsolved problems. Here's the gist.
 
 1. Class declares properties.
 2. Class declares relationships between properties.
