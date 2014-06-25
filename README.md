@@ -26,7 +26,7 @@ Current goals:
 - Reduce mutability.
 - Reduce procedural orientation.
 - Reduce reaching too deeply into objects (object.property.property.property etc).
-- 
+
 Unsolved problems:
 - One to many relationships.
 - Replacing callbacks with properties representing state (-viewDidAppear vs. self.view.isVisible) without the need to subclass native Cocoa classes.
