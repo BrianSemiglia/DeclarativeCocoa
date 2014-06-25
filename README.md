@@ -26,6 +26,7 @@ Current goals:
 - Reduce mutability.
 - Reduce procedural orientation.
 - Reduce reaching too deeply into objects (object.property.property.property etc).
+- Concurrency.
 
 Unsolved problems:
 - One to many relationships.
