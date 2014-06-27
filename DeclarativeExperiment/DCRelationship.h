@@ -12,7 +12,7 @@
  * A relationship between properties of an object.
  * @discussion The relationship is reevaluated when participating objects change.
  */
-@interface BSRelationship : NSObject
+@interface DCRelationship : NSObject
 
 /*
  * Describes details of relationship.

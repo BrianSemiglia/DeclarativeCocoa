@@ -7,26 +7,29 @@
 //
 
 #import "ViewController.h"
-#import "BSRelationship.h"
+#import "DCRelationship.h"
 #import "NSObject+RelationshipExtraction.h"
+#import "DCTableView.h"
+@import CoreData;
 
 @interface ViewController ()
 @property (nonatomic) UIView *sendbar;
 @property (nonatomic) UIView *contactBar;
 @property (nonatomic) id audioPlayer;
 @property (nonatomic) NSArray *relationships;
+@property (nonatomic) DCTableView *tableView;
 @end
 
 @implementation ViewController
 
-- (id)init {
-    self = super.init;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Relationships are gathered here to allow for Interface Builder support.
     self.relationships = self.extractedRelationships;
-    return self;
 }
 
-+ (BSRelationship *)relationshipBetweenSendBar:(UIView *)sendBar andToolBar:(UIView *)toolbar {
-    BSRelationship *relationship = [[BSRelationship alloc] initWithFirstObject:sendBar secondObject:toolbar];
++ (DCRelationship *)relationshipBetweenSendBar:(UIView *)sendBar andToolBar:(UIView *)toolbar {
+    DCRelationship *relationship = [[DCRelationship alloc] initWithFirstObject:sendBar secondObject:toolbar];
     relationship.threadSafe = NO;
     relationship.symmetrical = NO;
     relationship.description = ^{
@@ -35,12 +38,24 @@
     return relationship;
 }
 
-+ (BSRelationship *)relationshipBetweenAudioPlayer:(id)audioPlayer andView:(UIView *)view {
-    BSRelationship *relationship = [[BSRelationship alloc] initWithFirstObject:audioPlayer secondObject:view];
++ (DCRelationship *)relationshipBetweenAudioPlayer:(id)audioPlayer andView:(UIView *)view {
+    DCRelationship *relationship = [[DCRelationship alloc] initWithFirstObject:audioPlayer secondObject:view];
     relationship.threadSafe = YES;
     relationship.symmetrical = NO;
     relationship.description = ^{
         // audioPlayer.isPlaying = view.isVisible
+    };
+    return relationship;
+}
+
++ (DCRelationship *)relationshipBetweenFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController
+                                                   andTableView:(DCTableView *)tableView {
+    
+    DCRelationship *relationship = [[DCRelationship alloc] initWithFirstObject:fetchedResultsController secondObject:tableView];
+    relationship.threadSafe = NO;
+    relationship.symmetrical = NO;
+    relationship.description = ^{
+        // tableView.cellDecorationBlock = fetchedResultsController.fetchedObjects[indexPath].cellRepresentationBlock;
     };
     return relationship;
 }
@@ -54,6 +69,11 @@
 + (UIView *)contactBar {
     UIView *contactBar = [[UIView alloc] init];
     return contactBar;
+}
+
++ (NSFetchedResultsController *)fetchedResultsController {
+    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] init];
+    return fetchedResultsController;
 }
 
 // modal view controller = cell.mapQuery + webviewController

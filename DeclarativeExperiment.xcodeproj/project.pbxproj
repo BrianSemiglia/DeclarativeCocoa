@@ -13,8 +13,9 @@
 		D335FFC81954E37400F46F80 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D335FFC61954E37400F46F80 /* Main.storyboard */; };
 		D335FFCA1954E37400F46F80 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D335FFC91954E37400F46F80 /* Images.xcassets */; };
 		D335FFD61954E37500F46F80 /* DeclarativeExperimentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D335FFD51954E37500F46F80 /* DeclarativeExperimentTests.m */; };
-		D335FFE11954E3EA00F46F80 /* BSRelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = D335FFE01954E3EA00F46F80 /* BSRelationship.m */; };
+		D335FFE11954E3EA00F46F80 /* DCRelationship.m in Sources */ = {isa = PBXBuildFile; fileRef = D335FFE01954E3EA00F46F80 /* DCRelationship.m */; };
 		D335FFE91954F0DA00F46F80 /* NSObject+RelationshipExtraction.m in Sources */ = {isa = PBXBuildFile; fileRef = D335FFE81954F0DA00F46F80 /* NSObject+RelationshipExtraction.m */; };
+		D36B7495195A54F3003E07F6 /* DCTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D36B7494195A54F3003E07F6 /* DCTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +41,12 @@
 		D335FFCF1954E37500F46F80 /* DeclarativeExperimentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeclarativeExperimentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D335FFD41954E37500F46F80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D335FFD51954E37500F46F80 /* DeclarativeExperimentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeclarativeExperimentTests.m; sourceTree = "<group>"; };
-		D335FFDF1954E3EA00F46F80 /* BSRelationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSRelationship.h; sourceTree = "<group>"; };
-		D335FFE01954E3EA00F46F80 /* BSRelationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSRelationship.m; sourceTree = "<group>"; };
+		D335FFDF1954E3EA00F46F80 /* DCRelationship.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRelationship.h; sourceTree = "<group>"; };
+		D335FFE01954E3EA00F46F80 /* DCRelationship.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRelationship.m; sourceTree = "<group>"; };
 		D335FFE71954F0DA00F46F80 /* NSObject+RelationshipExtraction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RelationshipExtraction.h"; sourceTree = "<group>"; };
 		D335FFE81954F0DA00F46F80 /* NSObject+RelationshipExtraction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RelationshipExtraction.m"; sourceTree = "<group>"; };
+		D36B7493195A54F3003E07F6 /* DCTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTableView.h; sourceTree = "<group>"; };
+		D36B7494195A54F3003E07F6 /* DCTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,8 @@
 				D335FFC11954E37400F46F80 /* AppDelegate.m */,
 				D335FFC31954E37400F46F80 /* ViewController.h */,
 				D335FFC41954E37400F46F80 /* ViewController.m */,
+				D36B7493195A54F3003E07F6 /* DCTableView.h */,
+				D36B7494195A54F3003E07F6 /* DCTableView.m */,
 				D335FFEA1954F58C00F46F80 /* Relationship */,
 				D335FFC61954E37400F46F80 /* Main.storyboard */,
 				D335FFC91954E37400F46F80 /* Images.xcassets */,
@@ -126,8 +131,8 @@
 		D335FFEA1954F58C00F46F80 /* Relationship */ = {
 			isa = PBXGroup;
 			children = (
-				D335FFDF1954E3EA00F46F80 /* BSRelationship.h */,
-				D335FFE01954E3EA00F46F80 /* BSRelationship.m */,
+				D335FFDF1954E3EA00F46F80 /* DCRelationship.h */,
+				D335FFE01954E3EA00F46F80 /* DCRelationship.m */,
 				D335FFE71954F0DA00F46F80 /* NSObject+RelationshipExtraction.h */,
 				D335FFE81954F0DA00F46F80 /* NSObject+RelationshipExtraction.m */,
 			);
@@ -235,8 +240,9 @@
 			files = (
 				D335FFC51954E37400F46F80 /* ViewController.m in Sources */,
 				D335FFE91954F0DA00F46F80 /* NSObject+RelationshipExtraction.m in Sources */,
+				D36B7495195A54F3003E07F6 /* DCTableView.m in Sources */,
 				D335FFC21954E37400F46F80 /* AppDelegate.m in Sources */,
-				D335FFE11954E3EA00F46F80 /* BSRelationship.m in Sources */,
+				D335FFE11954E3EA00F46F80 /* DCRelationship.m in Sources */,
 				D335FFBF1954E37400F46F80 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +432,7 @@
 				D335FFDB1954E37500F46F80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D335FFDC1954E37500F46F80 /* Build configuration list for PBXNativeTarget "DeclarativeExperimentTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +441,7 @@
 				D335FFDE1954E37500F46F80 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

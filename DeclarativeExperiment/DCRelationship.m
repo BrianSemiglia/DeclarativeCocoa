@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Brian Semiglia. All rights reserved.
 //
 
-#import "BSRelationship.h"
+#import "DCRelationship.h"
 
-@implementation BSRelationship
+@implementation DCRelationship
 
 - (instancetype)initWithFirstObject:(id)firstObject secondObject:(id)secondObject {
     self = super.init;
