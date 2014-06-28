@@ -130,7 +130,4 @@ xcuserdata
 *.xccheckout
 
 *.xcuserstate
-
-*.xcuserstate
-
-*.xcuserstate
+Pods/
