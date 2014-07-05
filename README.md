@@ -29,7 +29,6 @@ Current goals:
 - Concurrency.
 
 Unsolved problems:
-- One to many relationships.
 - Replacing callbacks with properties representing state (-viewDidAppear vs. self.view.isVisible) without the need to subclass native Cocoa classes.
 
 There are more details documented in the sample project. Any feedback is welcome.
