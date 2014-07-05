@@ -11,9 +11,8 @@ This is a bit of a pipe dream but I'm trying to imagine a purely declarative for
 A relationship would look something like this:
 
     + (BSRelationship *)relationshipBetweenSendBar:(UIView *)sendBar andToolBar:(UIView *)toolbar {
-        BSRelationshipDetail *hiddingDetail = ^{ contactBar.frame = sendbar.editing ? hiddenFrame : shownFrame; };
-        BSRelationshipDetail *backgroundColorDetail = ^{ contactBar.backgroundColor = sendbar.backgroundColor; };
-        return [[BSRelationship alloc] initWithDetails:@[hiddingDetail, backgroundColorDetail]];
+        RACSignal *detail = RAC(toolbar, superview) = [RACSignal combineLatest:@[sendBar.superview]];
+        return [[BSRelationship alloc] initWithDetails:@[detail]];
     }
     
     // The use of class methods prevents accessing/mutating instance variables that are outside of the provided scope.
