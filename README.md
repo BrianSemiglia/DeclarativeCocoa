@@ -11,7 +11,7 @@ This is a bit of a pipe dream but I'm trying to imagine a purely declarative for
 A relationship would look something like this:
 
     + (BSRelationship *)relationshipBetweenSendBar:(UIView *)sendBar andToolBar:(UIView *)toolbar {
-        RACSignal *detail = RAC(toolbar, superview) = [RACSignal combineLatest:@[sendBar.superview]];
+        RACSignal *detail = RAC(toolbar, backgroundColor) = [RACSignal combineLatest:@[sendBar.backgroundColor]];
         return [[BSRelationship alloc] initWithDetails:@[detail]];
     }
     
