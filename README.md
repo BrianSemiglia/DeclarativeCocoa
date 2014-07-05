@@ -1,7 +1,7 @@
 DeclarativeCocoa
 ================
 
-This is a bit of a pipe dream but I'm trying to imagine a purely declarative form of Reactive Cocoa. And in the spirit of declarative programming I'm starting with the 'what' and working my way towards the 'how', so there are many unsolved problems. Here's the gist.
+This is a bit of a pipe dream but I'm trying to imagine a purely declarative form of Cocoa. And in the spirit of declarative programming I'm starting with the 'what' and working my way towards the 'how', so there are many unsolved problems. Here's the gist.
 
 1. Class declares properties.
 2. Class declares relationships between properties.
@@ -11,13 +11,9 @@ This is a bit of a pipe dream but I'm trying to imagine a purely declarative for
 A relationship would look something like this:
 
     + (BSRelationship *)relationshipBetweenSendBar:(UIView *)sendBar andToolBar:(UIView *)toolbar {
-        BSRelationship *relationship = [[BSRelationship alloc] initWithFirstObject:sendBar secondObject:toolbar];
-        relationship.threadSafe = NO;
-        relationship.symmetrical = NO;
-        relationship.description = ^{
-            // contactBar.frame = sendbar.editing ? hiddenFrame : shownFrame;
-        };
-        return relationship;
+        BSRelationshipDetail *hiddingDetail = ^{ // contactBar.frame = sendbar.editing ? hiddenFrame : shownFrame; };
+        BSRelationshipDetail *backgroundColorDetail = ^{ // contactBar.backgroundColor = sendbar.backgroundColor; };
+        return [[BSRelationship alloc] initWithDetails:@[hiddingDetail, backgroundColorDetail]];
     }
     
     // The use of class methods prevents accessing/mutating instance variables that are outside of the provided scope.
