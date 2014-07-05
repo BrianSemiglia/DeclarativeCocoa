@@ -25,8 +25,6 @@ A relationship would look something like this:
 Current goals:
 - Reduce mutability.
 - Reduce procedural orientation.
-- Reduce reaching too deeply into objects (object.property.property.property etc).
-- Concurrency.
 
 Unsolved problems:
 - Replacing callbacks with properties representing state (-viewDidAppear vs. self.view.isVisible) without the need to subclass native Cocoa classes.
