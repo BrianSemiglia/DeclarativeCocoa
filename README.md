@@ -11,8 +11,8 @@ This is a bit of a pipe dream but I'm trying to imagine a purely declarative for
 A relationship would look something like this:
 
     + (BSRelationship *)relationshipBetweenSendBar:(UIView *)sendBar andToolBar:(UIView *)toolbar {
-        BSRelationshipDetail *hiddingDetail = ^{ // contactBar.frame = sendbar.editing ? hiddenFrame : shownFrame; };
-        BSRelationshipDetail *backgroundColorDetail = ^{ // contactBar.backgroundColor = sendbar.backgroundColor; };
+        BSRelationshipDetail *hiddingDetail = ^{ contactBar.frame = sendbar.editing ? hiddenFrame : shownFrame; };
+        BSRelationshipDetail *backgroundColorDetail = ^{ contactBar.backgroundColor = sendbar.backgroundColor; };
         return [[BSRelationship alloc] initWithDetails:@[hiddingDetail, backgroundColorDetail]];
     }
     
