@@ -10,6 +10,7 @@ This is a bit of a pipe dream but I'm trying to imagine a purely declarative for
 
 A relationship would look something like this:
     
+    // The use of class methods prevents accessing/mutating instance variables that are outside of the provided scope.
     + (DCRelationship *)relationshipBetweenSendBar:(DCSendBar *)sendBar andToolBar:(UIView *)toolbar {
     
         DCRelationship *relationship = [[DCRelationship alloc] init];
@@ -29,8 +30,6 @@ A relationship would look something like this:
         return relationship;
     }
     
-    // The use of class methods prevents accessing/mutating instance variables that are outside of the provided scope.
-
 Current goals:
 - Reduce mutability.
 - Reduce procedural orientation.
