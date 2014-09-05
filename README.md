@@ -35,6 +35,6 @@ Current goals:
 - Reduce procedural orientation.
 
 Unsolved problems:
-- Replacing callbacks with properties representing state (-viewDidAppear vs. self.view.isVisible) without the need to subclass native Cocoa classes.
+- Replacing callbacks from native objects with properties representing state (-viewDidAppear vs. self.view.isVisible) without the need to subclass native Cocoa classes.
 
 There are more details documented in the sample project. Any feedback is welcome.
