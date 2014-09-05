@@ -7,13 +7,16 @@
 //
 
 #import "DCRelationship.h"
+#import "ReactiveCocoa.h"
+
+@interface DCRelationship ()
+@end
 
 @implementation DCRelationship
 
-- (instancetype)initWithFirstObject:(id)firstObject secondObject:(id)secondObject {
+- (instancetype)initWithDetails:(NSArray *)details {
     self = super.init;
-    // Inspect properties of both objects and subscribe to changes of all of those properties.
-    // Re-evaulate description when signal is received.
+    self.details = details.copy;
     return self;
 }
 

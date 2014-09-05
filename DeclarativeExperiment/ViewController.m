@@ -10,10 +10,13 @@
 #import "DCRelationship.h"
 #import "NSObject+RelationshipExtraction.h"
 #import "DCTableView.h"
+#import "ReactiveCocoa.h"
+#import "DCSendBar.h"
+#import "DCRelationshipDetail.h"
 @import CoreData;
 
 @interface ViewController ()
-@property (nonatomic) UIView *sendbar;
+@property (nonatomic) DCSendBar *sendbar;
 @property (nonatomic) UIView *contactBar;
 @property (nonatomic) id audioPlayer;
 @property (nonatomic) NSArray *relationships;
@@ -25,43 +28,43 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Relationships are gathered here to allow for Interface Builder support.
-    self.relationships = self.extractedRelationships;
+    self.relationships = @[[ViewController relationshipBetweenSendBar:self.sendbar andToolBar:self.contactBar]];
 }
 
-+ (DCRelationship *)relationshipBetweenSendBar:(UIView *)sendBar andToolBar:(UIView *)toolbar {
-    DCRelationship *relationship = [[DCRelationship alloc] initWithFirstObject:sendBar secondObject:toolbar];
-    relationship.threadSafe = NO;
-    relationship.symmetrical = NO;
-    relationship.description = ^{
-        // contactBar.frame = sendbar.editing ? hiddenFrame : shownFrame;
-    };
-    return relationship;
-}
-
-+ (DCRelationship *)relationshipBetweenAudioPlayer:(id)audioPlayer andView:(UIView *)view {
-    DCRelationship *relationship = [[DCRelationship alloc] initWithFirstObject:audioPlayer secondObject:view];
-    relationship.threadSafe = YES;
-    relationship.symmetrical = NO;
-    relationship.description = ^{
-        // audioPlayer.isPlaying = view.isVisible
-    };
-    return relationship;
-}
-
-+ (DCRelationship *)relationshipBetweenFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController
-                                                   andTableView:(DCTableView *)tableView {
++ (DCRelationship *)relationshipBetweenSendBar:(DCSendBar *)sendBar andToolBar:(UIView *)toolbar {
     
-    DCRelationship *relationship = [[DCRelationship alloc] initWithFirstObject:fetchedResultsController secondObject:tableView];
-    relationship.threadSafe = NO;
-    relationship.symmetrical = NO;
-    relationship.description = ^{
-        // tableView.cellDecorationBlock = fetchedResultsController.fetchedObjects[indexPath].cellRepresentationBlock;
-    };
+    DCRelationship *relationship = [[DCRelationship alloc] init];
+    
+    RACSignal *signal = RACSignalWithObserverTargetAndProperty(relationship, sendBar, editing);
+    RACDisposable *toolbarHidingDetail = [signal subscribeNext:^(id editing) {
+        // toolBar.frame = editing ? hiddenFrame : shownFrame;
+    }];
+        
+    RACSignal *signal2 = RACSignalWithObserverTargetAndProperty(relationship, sendBar, editing);
+    DCRelationshipDetail *toolbarHidingDetail2 = [[DCRelationshipDetail alloc] initWithSignal:signal2 andHandler:^(id response) {
+        // toolBar.frame = editing ? hiddenFrame : shownFrame;
+    }];
+    
+    relationship.details = @[toolbarHidingDetail, toolbarHidingDetail2];
     return relationship;
 }
 
-+ (UIView *)sendbar {
-    UIView *sendbar = [[UIView alloc] init];
+- (DCSendBar *)sendbar {
+    if (!_sendbar) {
+        _sendbar = [ViewController sendbar];
+    }
+    return _sendbar;
+}
+
+- (UIView *)contactBar {
+    if (!_contactBar) {
+        _contactBar = [ViewController contactBar];
+    }
+    return _contactBar;
+}
+
++ (DCSendBar *)sendbar {
+    DCSendBar *sendbar = [[DCSendBar alloc] init];
     sendbar.backgroundColor = [UIColor blueColor];
     return sendbar;
 }
@@ -70,16 +73,5 @@
     UIView *contactBar = [[UIView alloc] init];
     return contactBar;
 }
-
-+ (NSFetchedResultsController *)fetchedResultsController {
-    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc] init];
-    return fetchedResultsController;
-}
-
-// modal view controller = cell.mapQuery + webviewController
-// modal view controller = cell.searchQuery + webviewController
-// messages.read = view.isVisible
-// tableView.inset = sendbar.height
-// audioPlayer.isPlaying = view.isVisible
 
 @end
