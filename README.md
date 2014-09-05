@@ -10,9 +10,23 @@ This is a bit of a pipe dream but I'm trying to imagine a purely declarative for
 
 A relationship would look something like this:
 
-    + (BSRelationship *)relationshipBetweenSendBar:(UIView *)sendBar andToolBar:(UIView *)toolbar {
-        RACSignal *detail = RAC(toolbar, backgroundColor) = [RACSignal combineLatest:@[sendBar.backgroundColor]];
-        return [[BSRelationship alloc] initWithDetails:@[detail]];
+    + (DCRelationship *)relationshipBetweenSendBar:(DCSendBar *)sendBar andToolBar:(UIView *)toolbar {
+    
+        DCRelationship *relationship = [[DCRelationship alloc] init];
+    
+        RACSignal *signal = RACSignalWithObserverTargetAndProperty(relationship, sendBar, editing);
+        RACDisposable *toolbarHidingDetail = [signal subscribeNext:^(id editing) {
+            // toolBar.frame = editing ? hiddenFrame : shownFrame;
+        }];
+        
+        RACSignal *signal2 = RACSignalWithObserverTargetAndProperty(relationship, sendBar, editing);
+        DCRelationshipDetail *toolbarHidingDetail2 = [[DCRelationshipDetail alloc] initWithSignal:signal2 andHandler:^(id response) {
+            // toolBar.frame = editing ? hiddenFrame : shownFrame;
+        }];
+    
+        relationship.details = @[toolbarHidingDetail, toolbarHidingDetail2];
+    
+        return relationship;
     }
     
     // The use of class methods prevents accessing/mutating instance variables that are outside of the provided scope.
