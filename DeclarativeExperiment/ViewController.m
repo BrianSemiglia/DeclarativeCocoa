@@ -12,7 +12,6 @@
 #import "DCTableView.h"
 #import "ReactiveCocoa.h"
 #import "DCSendBar.h"
-#import "DCRelationshipDetail.h"
 @import CoreData;
 
 @interface ViewController ()
@@ -41,7 +40,7 @@
     }];
         
     RACSignal *signal2 = RACSignalWithObserverTargetAndProperty(relationship, sendBar, editing);
-    DCRelationshipDetail *toolbarHidingDetail2 = [[DCRelationshipDetail alloc] initWithSignal:signal2 andHandler:^(id response) {
+    RACDisposable *toolbarHidingDetail2 = [signal2 subscribeNext:^(id response) {
         // toolBar.frame = editing ? hiddenFrame : shownFrame;
     }];
     

@@ -18,7 +18,6 @@
 		D335FFE91954F0DA00F46F80 /* NSObject+RelationshipExtraction.m in Sources */ = {isa = PBXBuildFile; fileRef = D335FFE81954F0DA00F46F80 /* NSObject+RelationshipExtraction.m */; };
 		D36B7495195A54F3003E07F6 /* DCTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D36B7494195A54F3003E07F6 /* DCTableView.m */; };
 		D381045B19BA462400F388CA /* DCSendBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D381045A19BA462400F388CA /* DCSendBar.m */; };
-		D381045E19BA463D00F388CA /* DCRelationshipDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = D381045D19BA463D00F388CA /* DCRelationshipDetail.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,8 +53,6 @@
 		D36B7494195A54F3003E07F6 /* DCTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTableView.m; sourceTree = "<group>"; };
 		D381045919BA462400F388CA /* DCSendBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCSendBar.h; sourceTree = "<group>"; };
 		D381045A19BA462400F388CA /* DCSendBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCSendBar.m; sourceTree = "<group>"; };
-		D381045C19BA463D00F388CA /* DCRelationshipDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCRelationshipDetail.h; sourceTree = "<group>"; };
-		D381045D19BA463D00F388CA /* DCRelationshipDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCRelationshipDetail.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,13 +109,8 @@
 				D335FFC11954E37400F46F80 /* AppDelegate.m */,
 				D335FFC31954E37400F46F80 /* ViewController.h */,
 				D335FFC41954E37400F46F80 /* ViewController.m */,
-				D36B7493195A54F3003E07F6 /* DCTableView.h */,
-				D36B7494195A54F3003E07F6 /* DCTableView.m */,
-				D381045919BA462400F388CA /* DCSendBar.h */,
-				D381045A19BA462400F388CA /* DCSendBar.m */,
-				D381045C19BA463D00F388CA /* DCRelationshipDetail.h */,
-				D381045D19BA463D00F388CA /* DCRelationshipDetail.m */,
 				D335FFEA1954F58C00F46F80 /* Relationship */,
+				D381045F19BA46E200F388CA /* Example Views */,
 				D335FFC61954E37400F46F80 /* Main.storyboard */,
 				D335FFC91954E37400F46F80 /* Images.xcassets */,
 				D335FFBC1954E37400F46F80 /* Supporting Files */,
@@ -161,6 +153,17 @@
 				D335FFE81954F0DA00F46F80 /* NSObject+RelationshipExtraction.m */,
 			);
 			name = Relationship;
+			sourceTree = "<group>";
+		};
+		D381045F19BA46E200F388CA /* Example Views */ = {
+			isa = PBXGroup;
+			children = (
+				D36B7493195A54F3003E07F6 /* DCTableView.h */,
+				D36B7494195A54F3003E07F6 /* DCTableView.m */,
+				D381045919BA462400F388CA /* DCSendBar.h */,
+				D381045A19BA462400F388CA /* DCSendBar.m */,
+			);
+			name = "Example Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,7 +305,6 @@
 				D36B7495195A54F3003E07F6 /* DCTableView.m in Sources */,
 				D335FFC21954E37400F46F80 /* AppDelegate.m in Sources */,
 				D335FFE11954E3EA00F46F80 /* DCRelationship.m in Sources */,
-				D381045E19BA463D00F388CA /* DCRelationshipDetail.m in Sources */,
 				D381045B19BA462400F388CA /* DCSendBar.m in Sources */,
 				D335FFBF1954E37400F46F80 /* main.m in Sources */,
 			);
