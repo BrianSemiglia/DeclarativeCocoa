@@ -9,7 +9,7 @@ This is a bit of a pipe dream but I'm trying to imagine a purely declarative for
 4. Relationships are evalutated when involved properties change.
 
 A relationship would look something like this:
-
+    
     + (DCRelationship *)relationshipBetweenSendBar:(DCSendBar *)sendBar andToolBar:(UIView *)toolbar {
     
         DCRelationship *relationship = [[DCRelationship alloc] init];
@@ -20,11 +20,11 @@ A relationship would look something like this:
         }];
         
         RACSignal *signal2 = RACSignalWithObserverTargetAndProperty(relationship, sendBar, editing);
-        DCRelationshipDetail *toolbarHidingDetail2 = [[DCRelationshipDetail alloc] initWithSignal:signal2 andHandler:^(id response) {
-            // toolBar.frame = editing ? hiddenFrame : shownFrame;
+        DCRelationshipDetail *backgroundColorDetail = [[DCRelationshipDetail alloc] initWithSignal:signal2 andHandler:^(id response) {
+            // toolBar.backgroundColor = sendBar.backgroundColor;
         }];
     
-        relationship.details = @[toolbarHidingDetail, toolbarHidingDetail2];
+        relationship.details = @[toolbarHidingDetail, backgroundColorDetail];
     
         return relationship;
     }
