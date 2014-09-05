@@ -15,13 +15,8 @@
 @interface DCRelationship : NSObject
 
 /**
- *
+ * The details of the relationship stored as RACSignals.
  */
 @property (nonatomic, strong) NSArray *details;
-
-/**
- *
- */
-- (instancetype)initWithDetails:(NSArray *)details;
 
 @end

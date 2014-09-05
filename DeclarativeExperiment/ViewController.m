@@ -9,17 +9,13 @@
 #import "ViewController.h"
 #import "DCRelationship.h"
 #import "NSObject+RelationshipExtraction.h"
-#import "DCTableView.h"
 #import "ReactiveCocoa.h"
 #import "DCSendBar.h"
-@import CoreData;
 
 @interface ViewController ()
 @property (nonatomic) DCSendBar *sendbar;
 @property (nonatomic) UIView *contactBar;
-@property (nonatomic) id audioPlayer;
 @property (nonatomic) NSArray *relationships;
-@property (nonatomic) DCTableView *tableView;
 @end
 
 @implementation ViewController
